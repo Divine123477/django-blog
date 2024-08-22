@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+    padding: 5px;
+    background: #a0a0a0;
+
+}
+body{
+    background-color: rgb(202, 194, 202);
+    color: #000;
+}
+
+.title{
+    color: black;
+    font-size: larger;
+}
+.title:hover{
+    color: yellowgreen;
+}
+
+.user-area{
+    
+
+
+}
+

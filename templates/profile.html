@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> Profile Page</h2>
+
+<div class="user-area">
+  {% if user.is_authenticated %}
+  <p>Hi {{ user.username }}</p>
+<form action="{% url 'logout' %}" method="post">
+  {% csrf_token %}
+  <button type="submit"> Log Out </button>
+</form>
+
+{% for post in object_list %}
+<div class="post-entry">
+  <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+  <p>{{ post.body }}</p>          <!-- this will show only one post -->
+</div>
+{% endfor %}
+  {% else %}
+<div>
+    <p> You have no posts</p>
+</div>
+{% endif %}
+<!-- end of posts -->
+{% else %}
+
+<p> You are not logged in </p>
+<button><a href="{% url 'login' %}"> Login
+</a></button>
+
+</div>
+
+{% endblock content %}
+
+{% comment %} object list comes from ListView in views.py {% endcomment %}
